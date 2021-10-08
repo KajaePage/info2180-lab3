@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", loadDOM)
 function loadDOM(){ 
 
     showBoard()
+    console.log("Board has Loaded!")
+    hoverStyle()
+    console.log("Styles has Loaded!")
     plays()
 
 }
@@ -17,7 +20,6 @@ function showBoard(){
     for( i=0; i< boarddivs.length; i++ ){
         var divs = boarddivs[i];
         divs.classList.add("square");
-        console.log("Board has Loaded!")
     }
 }
 
@@ -36,6 +38,19 @@ function plays(){
             console.log(checkArray)
         });
     }
+}
+
+function hoverStyle(){
+    const gridSquares = Array.from(document.querySelectorAll(".square"));
+    gridSquares.forEach(function(squares) {
+        squares.addEventListener('mouseover', function(s) {
+          s.target.classList.add('hover');
+        });
+        
+        squares.addEventListener('mouseout', function(s) {
+          s.target.classList.remove('hover');
+        });
+      });
 }
 
 
