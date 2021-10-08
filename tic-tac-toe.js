@@ -1,5 +1,5 @@
 let currentTurn = "X";
-let checkArray = [];
+let checkArray = ['','','','','','','','',''];
 document.addEventListener("DOMContentLoaded", loadDOM)
 
 
@@ -31,7 +31,7 @@ function plays(){
             div.classList.add(currentTurn);
             div.textContent = currentTurn;
             index = squaredivs.indexOf(div);
-            checkArray.push([index,currentTurn]);
+            checkArray.splice(index,1,currentTurn);
             currentTurn = currentTurn == "X" ? "O" : "X";
             console.log(checkArray)
         });
