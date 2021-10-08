@@ -1,4 +1,5 @@
-let currentTurn;
+let currentTurn = "X";
+let checkArray = [];
 document.addEventListener("DOMContentLoaded", loadDOM)
 
 
@@ -6,6 +7,7 @@ function loadDOM(){
 
     showBoard()
     plays()
+
 }
 
 function showBoard(){ 
@@ -21,15 +23,20 @@ function showBoard(){
 
 function plays(){
 
-    const boarddivs = document.getElementById('board').getElementsByTagName('div');
-    for(const div of boarddivs){
+    const squaredivs = Array.from(document.querySelectorAll(".square"));
+    var index;
+    for(const div of squaredivs){
         div.classList.remove("X","O");
         div.addEventListener("click", (e) =>{
             div.classList.add(currentTurn);
             div.textContent = currentTurn;
+            index = squaredivs.indexOf(div);
+            checkArray.push([index,currentTurn]);
             currentTurn = currentTurn == "X" ? "O" : "X";
+            console.log(checkArray)
         });
     }
-
-    currentTurn = Math.round(Math.random(0,1)) == 1 ? "X" : "O";
 }
+
+
+
