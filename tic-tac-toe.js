@@ -9,6 +9,7 @@ function loadDOM(){
     hoverStyle()
     console.log("Styles has Loaded!")
     plays()
+    console.log("Game is Ready!")
 }
 
 function showBoard(){ 
@@ -45,10 +46,10 @@ function plays(){
                     post.textContent = "Congratulations! O is the Winner!";
                     post.classList.add("you-won");
             }
-        
-        });
+    }, {once: true});
     }
 }
+
 
 function hoverStyle(){
     const gridSquares = Array.from(document.querySelectorAll(".square"));
@@ -110,3 +111,4 @@ function checkForWinnerO(arr)
     else if (check(6,7,8)) return true;
 
 }
+
