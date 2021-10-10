@@ -28,7 +28,6 @@ function plays(){
     const post = document.getElementById("status");
     var index;
     for(const div of squaredivs){
-        div.classList.remove("X","O");
         div.addEventListener("click", (e) =>{
             div.classList.add(currentTurn);
             div.textContent = currentTurn;
@@ -46,7 +45,13 @@ function plays(){
                     post.textContent = "Congratulations! O is the Winner!";
                     post.classList.add("you-won");
             }
-    }, {once: true});
+            var newGameBtn = document.querySelector("button");
+            if(newGameBtn){
+                newGameBtn.addEventListener('click', (e) =>{
+                    location.reload();
+                });
+              }
+    },{once: true});
     }
 }
 
